@@ -1,3 +1,4 @@
+using _Project.Scripts.Interfaces;
 using _Project.Scripts.Player.CharacterAnimator;
 using UnityEngine;
 
@@ -8,12 +9,11 @@ public class CharacterMove
     private CharacterAnimator _animator;
     private Rigidbody _rb;
 
-    private float _angle;
+    private ICharacterComand _comand;
+    
     private float _smoth;
     private float _smothTime = 0.2f;
-    private float _defaultSpeed = 5f;
     private float _moveSpeed = 5f;
-    private float _runSpeed = 12f;
     private const float _jumpForce = 7f;
     private const float _minSpeedValue = 0;
 
@@ -29,7 +29,8 @@ public class CharacterMove
     {
         if (DirectionMove.magnitude > 0.1f)
         {
-            _angle = CalculateRotationAnge(DirectionMove);
+            _comand.Execute(ref _moveSpeed);
+           var _angle = CalculateRotationAnge(DirectionMove);
             var move = CharacterRotation(_angle);
             _animator.SetSpeedValue(_moveSpeed);
             _rb.MovePosition(_rb.position + move.normalized * (_moveSpeed * Time.fixedDeltaTime));
@@ -42,13 +43,12 @@ public class CharacterMove
 
     public void Run()
     {
-        _moveSpeed = _runSpeed;
-        _animator.SetSpeedValue(_moveSpeed);
+        _comand = new CharacterRun(_animator);
     }
 
     public void Wallking()
     {
-        _moveSpeed = _defaultSpeed;
+        _comand = new CharacterWallking(_animator);
     }
 
     private Vector3 CharacterRotation(float Angle)
@@ -75,5 +75,22 @@ public class CharacterMove
     {
         float rotationAnge = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg + _cameraTransform.eulerAngles.y;
         return Mathf.SmoothDampAngle(_transform.eulerAngles.y, rotationAnge, ref _smoth, _smothTime);
+    }
+}
+
+public class CharacterWallking : ICharacterComand
+{
+    private CharacterAnimator _animator;
+    private float _defaultSpeed = 5f;
+
+    public CharacterWallking(CharacterAnimator Animator)
+    {
+        _animator = Animator;
+    }
+    
+    public void Execute(ref float speedNow)
+    {
+        speedNow = _defaultSpeed;
+        _animator.SetSpeedValue(speedNow);
     }
 }

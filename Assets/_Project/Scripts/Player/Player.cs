@@ -1,4 +1,3 @@
-using System.Collections;
 using _Project.Scripts.Player.CharacterAnimator;
 using UnityEngine;
 
@@ -31,7 +30,7 @@ public class Player : MonoBehaviour
         _directionMove = GetMoveDirection();
 
         _characterMove.Move(_directionMove);
-        
+
         ButtonCheck();
     }
 
@@ -42,16 +41,15 @@ public class Player : MonoBehaviour
 
         if (_handlerInput.RunnButtonPressed())
             _characterMove.Run();
-        
+
         else
             _characterMove.Wallking();
-        
     }
 
     private Vector3 GetMoveDirection()
     {
         var direction = _handlerInput.GetMoveDirection();
-        return new Vector3(direction.x, 0,direction.y);
+        return new Vector3(direction.x, 0, direction.y);
     }
 
     private void OnDisable()
