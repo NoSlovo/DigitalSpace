@@ -1,18 +1,20 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
-public class HandlerInput : MonoBehaviour,IInputHandelr
+public class HandlerInput 
 {
-  [SerializeField] private PlayerInput _playerInput;
+  private PlayerInput _playerInput;
+
+  public HandlerInput()
+  {
+     _playerInput =  new PlayerInput();
+  }
+
+  public void Enable() => _playerInput.Enable();
+
+  public Vector2 GetMoveDirection() {
+      return _playerInput.KeyBoard.WASD.ReadValue<Vector2>();
+  }
+
+  public void Disable() => _playerInput.Disable();
   
-  private void Awake()=> _playerInput = GetComponent<PlayerInput>();
-
-  public Vector2 Direction { get; set;}
-}
-
-public interface IInputHandelr
-{
-  Vector2 Direction { get; set; }
 }

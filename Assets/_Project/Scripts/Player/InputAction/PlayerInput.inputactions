@@ -2,14 +2,14 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "PlayerInput",
-            "id": "f5f9ed53-2a19-41ba-9835-a1370ecb91a9",
+            "name": "KeyBoard",
+            "id": "8d306c09-3dd0-4a21-a210-c5cb67e9837f",
             "actions": [
                 {
-                    "name": "MoveInput",
+                    "name": "WASD",
                     "type": "Value",
-                    "id": "7677684d-ba9d-4fe8-b678-286a37e3b675",
-                    "expectedControlType": "Vector3",
+                    "id": "e6505101-9600-4873-b521-69570982547d",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,61 +18,73 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "604ba5c6-d8b2-4938-84f9-de8ed898ac85",
+                    "id": "a5888cee-62b6-4cba-976f-fea4219820fc",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveInput",
+                    "action": "WASD",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
-                    "id": "66cb0388-3253-4cc8-a784-605e8abb02a4",
+                    "id": "7d335b30-6960-46e9-9ac5-92138faef191",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveInput",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "e7178183-8fde-4b0f-a0e9-6d77e0bdd879",
+                    "id": "648e1bf6-10ed-42e7-ab85-d228a89a137d",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveInput",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "aa010c63-bef3-496a-ad21-d479f13b7027",
+                    "id": "1c30a6fb-d3b7-416e-a9dd-5b7c8b4a8430",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveInput",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "e4399a61-5c4e-4059-b8d0-feebbabc9705",
+                    "id": "ee627c96-e73e-4e78-a7c3-3195b6e211c7",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveInput",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "KeyBoardHandler",
+            "bindingGroup": "KeyBoardHandler",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
