@@ -16,5 +16,13 @@ public class HandlerInput
   }
 
   public void Disable() => _playerInput.Disable();
-  
+
+  public bool JumpButtonPressed()
+  {
+      if (_playerInput.KeyBoard.Jump.ReadValue<float>() > 0)
+         return true;
+      
+      return false;
+  }
+
 }
