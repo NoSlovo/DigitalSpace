@@ -31,11 +31,21 @@ public class Player : MonoBehaviour
         _directionMove = GetMoveDirection();
 
         _characterMove.Move(_directionMove);
+        
+        ButtonCheck();
+    }
 
+    private void ButtonCheck()
+    {
         if (_handlerInput.JumpButtonPressed())
-        {
             _characterMove.Jump();
-        }
+
+        if (_handlerInput.RunnButtonPressed())
+            _characterMove.Run();
+        
+        else
+            _characterMove.Wallking();
+        
     }
 
     private Vector3 GetMoveDirection()

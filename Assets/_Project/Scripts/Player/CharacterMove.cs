@@ -11,10 +11,13 @@ public class CharacterMove
     private float _angle;
     private float _smoth;
     private float _smothTime = 0.2f;
-    private const float _moveSpeed = 7f;
+    private float _defaultSpeed = 5f;
+    private float _moveSpeed = 5f;
+    private float _runSpeed = 12f;
     private const float _jumpForce = 7f;
+    private const float _minSpeedValue = 0;
 
-    public CharacterMove(Transform transform, Transform cameraTransform,Rigidbody Rb,CharacterAnimator animator)
+    public CharacterMove(Transform transform, Transform cameraTransform, Rigidbody Rb, CharacterAnimator animator)
     {
         _cameraTransform = cameraTransform;
         _transform = transform;
@@ -28,8 +31,24 @@ public class CharacterMove
         {
             _angle = CalculateRotationAnge(DirectionMove);
             var move = CharacterRotation(_angle);
+            _animator.SetSpeedValue(_moveSpeed);
             _rb.MovePosition(_rb.position + move.normalized * (_moveSpeed * Time.fixedDeltaTime));
         }
+        else
+        {
+            _animator.SetSpeedValue(_minSpeedValue);
+        }
+    }
+
+    public void Run()
+    {
+        _moveSpeed = _runSpeed;
+        _animator.SetSpeedValue(_moveSpeed);
+    }
+
+    public void Wallking()
+    {
+        _moveSpeed = _defaultSpeed;
     }
 
     private Vector3 CharacterRotation(float Angle)
@@ -43,7 +62,7 @@ public class CharacterMove
     {
         if (_rb.velocity.y == 0)
         {
-            _rb.AddForce(Vector3.up * _jumpForce,ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _animator.Jump(true);
         }
         else

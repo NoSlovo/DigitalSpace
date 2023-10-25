@@ -2814,7 +2814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818191161}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22412926, y: -0.047727246, z: -0.0109902015, w: 0.97332805}
+  m_LocalRotation: {x: -0.22412929, y: -0.047727283, z: -0.010990212, w: 0.97332805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3188,7 +3188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2243519, y: -0.019872835, z: -0.0045761387, w: 0.97429484}
+  m_LocalRotation: {x: -0.22435188, y: -0.019872846, z: -0.0045761405, w: 0.97429484}
   m_LocalPosition: {x: 18.12971, y: 3.5500002, z: -65.15709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10558,7 +10558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729236585}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22412929, y: -0.047727283, z: -0.010990212, w: 0.97332805}
+  m_LocalRotation: {x: -0.22412927, y: -0.04772729, z: -0.010990213, w: 0.97332805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10629,7 +10629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraTransform: {fileID: 963194228}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1773672134}
+  _charecterAnimator: {fileID: 8422892626555242078}
 --- !u!1 &1782415774
 GameObject:
   m_ObjectHideFlags: 0
@@ -21189,6 +21190,7 @@ GameObject:
   - component: {fileID: 8422892626555242077}
   - component: {fileID: 1773672134}
   - component: {fileID: 1773672138}
+  - component: {fileID: 8422892626555242078}
   - component: {fileID: 1773672142}
   m_Layer: 0
   m_Name: Player
@@ -21217,6 +21219,19 @@ Transform:
   - {fileID: 169612651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 5.831, z: 0}
+--- !u!114 &8422892626555242078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422892626555083389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9649f952ad246f590f8bfd4b90c322f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorCharacter: {fileID: 1175476208}
 --- !u!4 &8890356699019427259
 Transform:
   m_ObjectHideFlags: 0

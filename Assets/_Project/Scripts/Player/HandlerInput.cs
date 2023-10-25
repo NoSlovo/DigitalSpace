@@ -25,4 +25,12 @@ public class HandlerInput
       return false;
   }
 
+  public bool RunnButtonPressed()
+  {
+      if (_playerInput.KeyBoard.Run.ReadValue<float>() > 0)
+          return true;
+
+      return false;
+  }
+
 }
