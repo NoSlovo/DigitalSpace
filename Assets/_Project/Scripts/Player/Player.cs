@@ -1,4 +1,5 @@
 using System.Collections;
+using _Project.Scripts.Player.CharacterAnimator;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -6,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Animator _charecterAnimator;
+    [SerializeField] private CharacterAnimator _charecterAnimator;
 
     private HandlerInput _handlerInput;
     private Vector3 _directionMove = Vector3.zero;

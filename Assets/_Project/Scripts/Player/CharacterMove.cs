@@ -1,10 +1,11 @@
+using _Project.Scripts.Player.CharacterAnimator;
 using UnityEngine;
 
 public class CharacterMove
 {
     private Transform _cameraTransform;
     private Transform _transform;
-    private Animator _animator;
+    private CharacterAnimator _animator;
     private Rigidbody _rb;
 
     private float _angle;
@@ -13,7 +14,7 @@ public class CharacterMove
     private const float _moveSpeed = 7f;
     private const float _jumpForce = 7f;
 
-    public CharacterMove(Transform transform, Transform cameraTransform,Rigidbody Rb,Animator animator)
+    public CharacterMove(Transform transform, Transform cameraTransform,Rigidbody Rb,CharacterAnimator animator)
     {
         _cameraTransform = cameraTransform;
         _transform = transform;
@@ -43,11 +44,11 @@ public class CharacterMove
         if (_rb.velocity.y == 0)
         {
             _rb.AddForce(Vector3.up * _jumpForce,ForceMode.Impulse);
-            _animator.SetBool("IJump",true);
+            _animator.Jump(true);
         }
         else
         {
-            _animator.SetBool("IJump",false);
+            _animator.Jump(false);
         }
     }
 
