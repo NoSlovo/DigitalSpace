@@ -7,13 +7,10 @@ public class FinishButton : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.TryGetComponent(out Player _player))
-    {
-      var result = _timer.StopTimer();
+    var result = _timer.StopTimer();
       
-      if (result.ResultValue == 0)
-        return;
-      _liderBoard.SetResultRace(result.ResultValue);
-    }
+    if (result.ResultValue == 0)
+      return;
+    _liderBoard.SetResultRace(result.ResultValue);
   }
 }

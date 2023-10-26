@@ -12,15 +12,7 @@ public class LiderBoard : MonoBehaviour
     {
         for (int i = 0; i < _outputFields.Count; i++)
         {
-            if (value < _outputFields[i].Result)
-            {
-                _outputFields[i].SetIndex(i + 1);
-                _outputFields[i].SetValue(value);
-                _outputFields[i].Active(true);
-                break;
-            }
-
-            if (_outputFields[i].Result == 0)
+            if (value < _outputFields[i].Result || _outputFields[i].Result == 0 )
             {
                 _outputFields[i].SetIndex(i + 1);
                 _outputFields[i].SetValue(value);

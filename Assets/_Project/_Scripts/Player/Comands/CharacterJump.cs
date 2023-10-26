@@ -1,28 +1,21 @@
 ﻿using _Project.Scripts.Player.CharacterAnimator;
 using UnityEngine;
 
-public class CharacterJump
+public class CharacterJump : IJumpComand
 {
-    private Rigidbody _rb;
     private CharacterAnimator _animator;
-    private const float _jumpForce = 10f;
+    private const float JumpForce = 10f;
     
-    public  CharacterJump(Rigidbody rb,CharacterAnimator animator)
+    public CharacterJump()
     {
-        _rb = rb;
-        _animator = animator;
+        
     }
-    
-    public void Jump()
+
+    public void Execute(Rigidbody rigidbody)
     {
-        if (_rb.velocity.y == 0)
+        if (rigidbody.velocity.y == 0)
         {
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _animator.Jump(true);
-        }
-        else
-        {
-            _animator.Jump(false);
+            rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
         }
     }
 }
