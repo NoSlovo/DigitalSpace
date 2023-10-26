@@ -5,7 +5,7 @@ public class CharacterRun : ICharacterComand
 {
     private CharacterAnimator _animator;
     
-    private const float _runSpeed = 12f;
+    private const float _runSpeed = 0.30f;
 
     public CharacterRun(CharacterAnimator Animator)
     {

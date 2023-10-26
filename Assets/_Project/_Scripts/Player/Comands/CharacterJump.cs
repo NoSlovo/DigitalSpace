@@ -5,7 +5,7 @@ public class CharacterJump
 {
     private Rigidbody _rb;
     private CharacterAnimator _animator;
-    private const float _jumpForce = 7f;
+    private const float _jumpForce = 10f;
     
     public  CharacterJump(Rigidbody rb,CharacterAnimator animator)
     {

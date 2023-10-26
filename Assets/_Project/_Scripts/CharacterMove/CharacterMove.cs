@@ -14,7 +14,7 @@ public class CharacterMove
 
     private float _smoth;
     private float _smothTime = 0.2f;
-    private float _moveSpeed = 5f;
+    private float _moveSpeed = 0.15f;
     private const float _minSpeedValue = 0;
 
     public CharacterMove(Transform transform, Transform cameraTransform, Rigidbody Rb, CharacterAnimator animator)
@@ -34,7 +34,7 @@ public class CharacterMove
             var _angle = CalculateRotationAnge(DirectionMove);
             var move = CharacterRotation(_angle);
             _animator.SetSpeedValue(_moveSpeed);
-            _rb.MovePosition(_rb.position + move.normalized * (_moveSpeed * Time.fixedDeltaTime));
+            _rb.AddForce(move * _moveSpeed,ForceMode.Impulse);
         }
         else
         {

@@ -4,7 +4,7 @@ using _Project.Scripts.Player.CharacterAnimator;
 public class CharacterWallking : ICharacterComand
 {
     private CharacterAnimator _animator;
-    private float _defaultSpeed = 5f;
+    private float _defaultSpeed = 0.15f;
 
     public CharacterWallking(CharacterAnimator Animator)
     {
