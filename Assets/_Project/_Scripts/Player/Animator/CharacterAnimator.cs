@@ -8,11 +8,10 @@ namespace _Project.Scripts.Player.CharacterAnimator
         
         private static readonly int _iJump = Animator.StringToHash("IJump");
         private static readonly int _speed = Animator.StringToHash("Speed");
-
-
-        public void Jump(bool characterJump)
+        private const string _nameAnimation = "Jump";
+        public void Jump()
         {
-            _animatorCharacter.SetBool(_iJump,characterJump);
+            _animatorCharacter.Play(_nameAnimation);
         }
 
         public void SetSpeedValue(float speed)
