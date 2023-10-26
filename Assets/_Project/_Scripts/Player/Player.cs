@@ -19,19 +19,16 @@ public class Player : MonoBehaviour
         _characterMove = new CharacterMove(transform, _cameraTransform, _rigidbody, _charecterAnimator);
     }
 
-    private void OnEnable()
-    {
-        _handlerInput.Enable();
-    }
-
+    private void OnEnable() => _handlerInput.Enable();
 
     private void FixedUpdate()
     {
         _directionMove = GetMoveDirection();
+        
+        ButtonCheck();
 
         _characterMove.Move(_directionMove);
 
-        ButtonCheck();
     }
 
     private void ButtonCheck()
@@ -41,7 +38,6 @@ public class Player : MonoBehaviour
 
         if (_handlerInput.RunnButtonPressed())
             _characterMove.Run();
-
         else
             _characterMove.Wallking();
     }
@@ -52,8 +48,5 @@ public class Player : MonoBehaviour
         return new Vector3(direction.x, 0, direction.y);
     }
 
-    private void OnDisable()
-    {
-        _handlerInput.Disable();
-    }
+    private void OnDisable() => _handlerInput.Disable();
 }
